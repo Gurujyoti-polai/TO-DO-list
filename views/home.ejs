@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-app-list</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+</head>
+<body>
+<!-- <center> -->
+    <h1>TODO App</h1>
+    <form action="/addtask" method="post">
+        <table class="table table-bordered table-sm">
+            <tr>
+            <td colspan="2">
+                <label for="Description">Description</label><br>
+                <input type="text" name="description" required placeholder="What do you need to do?">
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="CATEGORY">CATEGORY</label><br>
+                    <select required class="form-select" aria-label="Default select example" name="category">
+                        <option selected>Choose a Category</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Works">Work</option>
+                        <option value="School">School</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Other">Other</option>
+                      </select>
+                </td>
+                <td>
+                    <label for="birthday">Birthday:</label><br>
+                    <input type="date" id="bthday" required name="birthday">
+                </td>
+            </tr>
+        </table>
+        <center>
+            <button type="submit" value="submit" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> ADD TASK</button><br><br>
+        </center>
+    </form>
+    <center>
+        <button type="delete" form="a-form" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash"></span><a href=""></a> DELETE TASKS</button>
+    </center>
+<!-- </center> -->
+    <table class="table table-bordered">
+        <% todolists.forEach(todolist => { %>
+            <tr>
+                <td>
+                    <form action="/action_page" id="a-form">
+                        <input type="checkbox" id="" name="list" value="task">
+                        <label for="description"><%= todolist.description %> </label>
+                        <label for="date"><%= todolist.date %> </label>
+                        <label for="category">
+                            <div class="alert alert-danger" role="alert">
+                                <%= todolist.category %>
+                            </div>
+                        </label>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
